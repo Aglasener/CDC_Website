@@ -15,5 +15,12 @@ module.exports = function(sequelize, DataTypes) {
     std_prev: DataTypes.BOOLEAN,
     pre_cond: DataTypes.BOOLEAN,
   });
+
+  User.associate = function(models) {
+    User.hasMany(models.Result, {
+      onDelete: "cascade"
+    });
+  };
+
   return User;
 };
