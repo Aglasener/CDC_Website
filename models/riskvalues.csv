@@ -1,0 +1,21 @@
+,,,
+1,Age,0-19,2
+2,Age,20-35,6
+3,Age,36-45,9
+4,Age,46-60,12
+5,Age,61 or more,15
+6,Alcolhol Consumption Male,20 or more a week,15
+7,Alcolhol Consumption Male,15-19,7.5
+8,Alcolhol Consumption Male,less than 15,0
+9,Alcolhol Consumption Female,15 or more,15
+10,Alcolhol Consumption Female,14-Sep,7.5
+11,Alcolhol Consumption Female,8 or less,0
+12,Drug Use,Yes,15
+13,Drug Use,Opiods,8
+14,Drug Use,Heroin,4
+15,Drug Use,Crack/Cocaine,2
+16,Drug Use,Psychostimulants,1
+17,Physical Activity,Less than 3 times a week,15
+18,Tobacco Use,Yes,15
+19,Obesity,BMI 25 or greater,10
+20,Obesity,BMI 30 or greater,20
