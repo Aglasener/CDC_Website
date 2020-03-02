@@ -6,15 +6,16 @@ var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  getObesity: function(example) {
     return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
+      url: "https://chronicdata.cdc.gov/resource/hn4x-zwk7.json",
+      headers: {'Authorization': 'Basic ' + API Key,},
+      method: "GET",
+      data: {
+        "$limit" : 5000,
+        "$$app_token" : "YOURAPPTOKENHERE"
+    }
+  });
   },
   getExamples: function() {
     return $.ajax({
