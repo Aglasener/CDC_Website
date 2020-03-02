@@ -32,12 +32,21 @@ var API = {
         console.log(data);
       });
     },
-    deleteExample: function(id) {
+    getDeathCause: function(state) {
+        var queryURL = "https://data.cdc.gov/resource/bi63-dtpu.json?state=" + state;
       return $.ajax({
-        url: "api/examples/" + id,
-        type: "DELETE"
+        url: queryURL,
+        headers: {'Authorization': 'Basic ' + key,},
+        method: "GET",
+        data: {
+          "$limit" : 5000,
+          "$$app_token" : "token"
+      }
+    }).done(function(data) {
+        console.log("Retrieved " + data.length + " records from the dataset!");
+        console.log(data);
       });
-    }
+    },
   };
   
   
