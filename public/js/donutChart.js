@@ -1,4 +1,7 @@
-var risk = 7
+//var risk = 7
+
+// Include this div in the html
+// <svg class="donut" width = "500" height = "300"></svg>
 
 function Donut(){ 
 
