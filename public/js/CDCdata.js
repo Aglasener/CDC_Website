@@ -126,7 +126,7 @@ var getObesity = function(gender) {
       });
     };
 var getOverdose = function(state) {
-        var queryURL = "https://data.cdc.gov/resource/xkb8-kh2a.json?year=2019&state_name=" + state;
+        var queryURL = "https://data.cdc.gov/resource/xkb8-kh2a.json?year=2019&month=February&state_name=" + state;
       return $.ajax({
         url: queryURL,
         headers: {'Authorization': 'Basic ' + key,},
