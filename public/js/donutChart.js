@@ -1,4 +1,4 @@
-var risk = .7
+var risk = 7
 
 function Donut(){ 
 
@@ -25,12 +25,12 @@ var foreground = g.append("path")
     .attr("d", arc);
 
 var score = svg.append("text")
-        .text(risk * 100)
+        .text(risk)
         .attr("font-size", "30px")
         .attr("x", "232px")
         .attr("y", "152px")
 
-foreground.transition().duration(1500).attrTween("d", arcTween(risk * tau))
+foreground.transition().duration(1500).attrTween("d", arcTween((risk / 10) * tau))
 
 
 
