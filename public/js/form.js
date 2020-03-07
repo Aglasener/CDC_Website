@@ -3,48 +3,69 @@ var lastName = $("#lastName");
 var age = $("#age").val().trim();
 var state = $("#state");
 var gender = $("#gender");
-var drugScore = 0;
-var sexScore = 0;
-var tobaccoScore = 0;
-var alcoholScore = $("#alcohol-form");
-
 
 function drugValue () {
-    
+    var drugScore = 0;
     if ($("#opiods").checked = true){
         drugScore+= 8;
     }
     if ($("#heroin").checked = true){
-        drugScore+= 8;
+        drugScore+= 4;
     }
     if ($("#crack").checked = true){
-        drugScore+= 8;
+        drugScore+= 2;
     }
     if ($("#pyschostimulant").checked = true){
-        drugScore+= 8;
+        drugScore+= 1;
     }
     return drugScore;
 }
 
 function sexValue () {
+    var sexScore = 0;
     if ($("#sex1").checked = true){
-        sexScore+= 15;
+        sexScore = 15;
+        return sexScore;
     }
     else {
         sexScore = 0;
+        return sexScore;
     }
-    return sexScore;
+    
 }
 
 function tobaccoValue () {
+    var tobaccoScore = 0;
+
     if ($("#tobaccoYes").checked = true){
-        tobaccoScore+= 20;
+        tobaccoScore = 20;
+        return tobaccoScore;
     }
     else {
-        tobaccoScore - 0;
+        tobaccoScore = 0;
+        return tobaccoScore;
     }
-    return tobaccoScore;
+    
 }
+
+function alcoholValue () {
+    var alcoholScore = 0;
+
+    if ($("#alcohol1").checked = true){
+        alcoholScore = 0;
+        return alcoholScore;
+    }
+    else if ($("#alcohol2").checked = true){
+        alcoholScore = 7;
+        return alcoholScore;
+    }
+    else {
+        alcoholScore = 15;
+        return alcoholScore;
+    }
+    
+}
+
 
 function ageValue(){
     var ageScore;
@@ -67,7 +88,7 @@ function ageValue(){
 }
 
 function totalScore(){
-    var score = Number(alcoholScore.val()) + 
+    var score = alcoholValue() + 
                 ageValue() +
                 tobaccoValue() +
                 drugValue() +
@@ -96,13 +117,12 @@ function handleFormSubmit(event) {
         .val(),
         gender: gender
         .val(),
-        alcohol: Number(alcoholScore
-        .val()),
+        alcohol: alcoholValue(),
         tobacco_use: tobaccoValue(),
         drug_use: drugValue(),
         obesity: 10,
         safe_sex: sexValue(),  
-        alcohol_score: Number(alcoholScore.val()),
+        alcohol_score: alcoholValue(),
         age_score: ageValue(),
         tobacco_score: tobaccoValue(),
         drug_score: drugValue(),
