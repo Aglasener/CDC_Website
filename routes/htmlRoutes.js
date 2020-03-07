@@ -1,29 +1,27 @@
 var db = require("../models");
 
+var path = require("path");
+
 module.exports = function(app) {
   // Load index page
   app.get('/', function (req, res) {
-    res.render('prompt');
+    res.sendFile(path.join(__dirname, "../public/prompt.html"));
   });
+  
 
-  app.get("/list", function(req, res) {
-    res.render('list');
+  app.get("/users", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/list.html"));
   });
 
   app.get('/user', function (req, res) {
-    res.render('user');
+    res.sendFile(path.join(__dirname, "../public/user.html"));
   });
 
   app.get("/form", function(req, res) {
-    res.render('form');
+    res.sendFile(path.join(__dirname, "../public/form.html"));
   });
-
-  // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
-  });
-};
-
+}
+ 
 // var db = require("../models");
 
 // module.exports = function(app) {
