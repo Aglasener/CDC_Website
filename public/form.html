@@ -205,11 +205,11 @@
           <br>
           <label for="tobaccoUse">Do you regularly use tobacco products?</label>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="tobaccoYes" value="option1">
             <label class="form-check-label" for="inlineRadio1">Yes</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="tobaccoNo" value="option2">
             <label class="form-check-label" for="inlineRadio2">No</label>
           </div>
           <!-- If so, how long did you use it -->
@@ -265,7 +265,7 @@
 
     var firstName = $("#firstName").val();
     var lastName = $("#lastName").val();
-    var birthDay = $("#inputMonth").val() + $("#inputDay").val() + $("#inputYear").val();
+    var birthDay = $("#inputMonth").val().trim() + $("#inputDay").val().trim() + $("#inputYear").val().trim();
     // var gender = $("#genderInput").selected("true")
 
     function pushDrugs(drugs) {
