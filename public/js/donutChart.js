@@ -33,7 +33,7 @@ var score = svg.append("text")
         .attr("x", "232px")
         .attr("y", "152px")
 
-foreground.transition().duration(1500).attrTween("d", arcTween((risk / 10) * tau))
+foreground.transition().duration(1500).attrTween("d", arcTween((risk / 100) * tau))
 
 
 

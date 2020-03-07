@@ -1,10 +1,10 @@
 
-var data = [
-    {name: "Joe", value: 10},
-    {name: "Moses", value: 5},
-    {name: "Nisa", value: 7},
-    {name: "Eman", value: 15},
-].sort((a, b) => b.value - a.value )
+// var data = [
+//     {name: "Joe", value: 10},
+//     {name: "Moses", value: 5},
+//     {name: "Nisa", value: 7},
+//     {name: "Eman", value: 15},
+// ].sort((a, b) => b.value - a.value )
 
  console.log(data.length)
 // d3.select("body").transition()
@@ -78,7 +78,7 @@ chart.append("g").call(yAxis);
 
 }
 
-HBarChart(data);
+
 
 
 
