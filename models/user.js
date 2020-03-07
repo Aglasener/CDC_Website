@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
     drug_use: DataTypes.BOOLEAN,
     obesity: DataTypes.DECIMAL,
     physical: DataTypes.BOOLEAN,
-    safe_sex: DataTypes.BOOLEAN,
+    safe_sex: DataTypes.BOOLEAN
   });
 
   User.associate = function(models) {

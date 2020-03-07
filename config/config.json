@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "student",
-    "database": "CDCdb",
+    "password": "password",
+    "database": "riskvalues_db",
     "host": "localhost",
     "dialect": "mysql"
   },

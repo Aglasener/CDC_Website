@@ -5,7 +5,7 @@ $(document).ready(function() {
     getUsers();
 
     function getUsers() {
-        $.get("/api/users", function (data) {
+        $.get("/api/user", function (data) {
             console.log("Users", data);
             users=data;
 
