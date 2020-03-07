@@ -49,7 +49,7 @@ function HBarChart() {
   var bar = chart.selectAll("g")
           .data(data)
       .enter().append("g")
-          .attr("transform", function(d, i) { return "translate(0," + i  + ")"; })
+          
   
   bar.append("rect").transition().delay(function(d, i) { return i * 150 })
           .attr("width", x.bandwidth())
