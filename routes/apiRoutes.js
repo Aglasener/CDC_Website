@@ -29,14 +29,14 @@ module.exports = function(app) {
 //-----------------------------------------------------
 
   // USER TABLE
-  app.get("/api/users", function(req, res) {
+  app.get("/api/user", function(req, res) {
     db.User.findAll({}).then(function(dbUser) {
       res.json(dbUser);
     });
   });
 
   // Create a new user result
-  app.post("/api/users", function(req, res) {
+  app.post("/api/user", function(req, res) {
     db.User.create(req.body).then(function(dbUser) {
       res.json(dbUser);
     });
