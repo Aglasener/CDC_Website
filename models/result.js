@@ -5,7 +5,6 @@ module.exports = function(sequelize, DataTypes) {
         tobacco_score: DataTypes.INTEGER,
         drug_score: DataTypes.INTEGER,
         obesity_score: DataTypes.INTEGER,
-        physical_score: DataTypes.INTEGER,
         sex_score: DataTypes.INTEGER,
         total_score: DataTypes.INTEGER
     });
