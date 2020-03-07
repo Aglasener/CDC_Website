@@ -73,7 +73,7 @@ function HBarChart() {
       .attr("dx", ".35em")
       .text(function (d) { return d.value; });
   
-  chart.append("g").call(xAxis);
+  chart.append("g").call(xAxis).selectAll("text").attr("transform", "rotate(90)").style("text-anchor", "start").attr("x", 9) ;
   chart.append("g").call(yAxis);
   
   }
