@@ -1,10 +1,10 @@
 
-var data = [
-    {name: "Joe", value: 10},
-    {name: "Moses", value: 5},
-    {name: "Nisa", value: 7},
-    {name: "Eman", value: 15},
-].sort((a, b) => b.value - a.value )
+// var data = [
+//     {name: "Joe", value: 10},
+//     {name: "Moses", value: 5},
+//     {name: "Nisa", value: 7},
+//     {name: "Eman", value: 15},
+// ].sort((a, b) => b.value - a.value )
 
  console.log(data.length)
 // d3.select("body").transition()
@@ -58,7 +58,7 @@ var chart = d3.select(".horizChart")
 var bar = chart.selectAll("g")
         .data(data)
     .enter().append("g")
-        .attr("transform", function(d, i) { return "translate(0," + i  + ")"; })
+
 
 bar.append("rect").transition().delay(function(d, i) { return i * 150 })
         .attr("width", x.bandwidth())
@@ -78,6 +78,8 @@ chart.append("g").call(yAxis);
 
 }
 
-HBarChart(data);
+
+
+
 
       
