@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     DOB: DataTypes.DATEONLY,
     state: DataTypes.STRING,
     gender: DataTypes.STRING,
-    alcohol: DataTypes.NUMBER,
+    alcohol: DataTypes.INTEGER,
     tobacco_use: DataTypes.BOOLEAN,
     drug_use: DataTypes.BOOLEAN,
     obesity: DataTypes.DECIMAL,
