@@ -5,15 +5,12 @@ module.exports = function(sequelize, DataTypes) {
     DOB: DataTypes.DATEONLY,
     state: DataTypes.STRING,
     gender: DataTypes.STRING,
-    alcohol: DataTypes.BOOLEAN,
+    alcohol: DataTypes.NUMBER,
     tobacco_use: DataTypes.BOOLEAN,
-    smoking_freq: DataTypes.INTEGER,
     drug_use: DataTypes.BOOLEAN,
     obesity: DataTypes.DECIMAL,
     physical: DataTypes.BOOLEAN,
     safe_sex: DataTypes.BOOLEAN,
-    std_prev: DataTypes.BOOLEAN,
-    pre_cond: DataTypes.BOOLEAN,
   });
 
   User.associate = function(models) {
