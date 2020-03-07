@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "testtest",
+    "password": "sqlpassword",
     "database": "riskvalues_db",
     "host": "localhost",
     "dialect": "mysql"
