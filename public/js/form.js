@@ -6,6 +6,8 @@ var gender = $("#gender");
 var drugScore = 0;
 var sexScore = 0;
 var tobaccoScore = 0;
+var alcoholScore = $("#alcohol-form");
+
 
 function drugValue () {
     
@@ -44,6 +46,21 @@ function tobaccoValue () {
     return tobaccoScore;
 }
 
+function ageValue(){
+    var year = $("#birthYear").val().trim();
+    var age = 2020 - Number(year);
+    return age;
+}
+
+function totalScore(){
+    var score = Number(alcoholScore.val().trim()) + 
+                ageValue().trim() +
+                tobaccoValue().trim() +
+                drugValue().trim() +
+                10 +
+                sexValue().trim(),    
+    return score;
+}
 
 function handleFormSubit(event) {
     event.preventDefault();
@@ -63,33 +80,39 @@ function handleFormSubit(event) {
         gender: gender
         .val()
         .trim(),
-        alcohol:
+        alcohol: Number(alcoholScore
         .val()
-        .trim(),
+        .trim()),
         tobacco_use: tobaccoValue()
         .trim(),
         drug_use: drugValue()
         .trim(),
-        obesity: 10.0,
+        obesity: 10,
         safe_sex: sexValue()
         .trim(),
     }
 
-    var alcoholScore = 
-    var ageScore = 
-    var tobaccoScore = 
-    var drugScore = 
-    var sexScore = 
-    var totalScore = 
-    
     var newResult = {
-        alcohol_score: alcoholScore.val().trim(),
-        age_score: ageScore.val().trim(),
-        tobacco_score: tobaccoScore.val().trim(),
-        drug_score: drugScore.val().trim(),
+        alcohol_score: Number(alcoholScore.val().trim()),
+        age_score: ageValue().trim(),
+        tobacco_score: tobaccoValue().trim(),
+        drug_score: drugValue().trim(),
         obesity_score: 10,
-        sex_score: sexScore.val().trim(),
-        total_score: totalScore
+        sex_score: sexValue().trim(),
+        total_score: totalScore().trim()
     }
 }
 
+submitUser(newUser);
+
+function submitUser(user) {
+    $.post("/api/user", user, function() {
+        window.location.href = "/user";
+    });
+    $.post("")
+  }
+//   function submitResult(result) {
+//     $.post("/api/user", result, function() {
+//       window.location.href = "/user";
+//     });
+//   }
