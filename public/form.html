@@ -88,8 +88,8 @@
           <!-- Sex -->
           <br>
             <div class="form-group">
-                <label for="genderInput">Gender</label>
-                <select id="genderInput" class="form-control">
+                <label for="gender">Gender</label>
+                <select id="gender" class="form-control">
                   <option selected>Choose...</option>
                   <option>Male</option>
                   <option>Female</option>
@@ -115,25 +115,19 @@
            -->
           <label for="drinkNumber">How many alcoholic drinks do you consume per week?</label> 
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            <label class="form-check-label" for="inlineRadio1">1 - 5</label>
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="alcohol1" value="0">
+            <label class="form-check-label" for="inlineRadio1">Less than 15</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-            <label class="form-check-label" for="inlineRadio2">6 - 10</label>
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="alcohol2" value="7.5">
+            <label class="form-check-label" for="inlineRadio2">15-19</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-            <label class="form-check-label" for="inlineRadio3">11 - 15</label>
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="alcohol3" value="15">
+            <label class="form-check-label" for="inlineRadio3">20 or more</label>
           </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
-            <label class="form-check-label" for="inlineRadio4">16 - 20</label>
           </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
-            <label class="form-check-label" for="inlineRadio5">21+</label>
-          </div>
+          
           
           
           <h6>Have you ever used any of the following drugs? Please check all that apply.</h6>
@@ -141,170 +135,39 @@
               <div class="col d-flex align-items-start">
                   <ul>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Alcohol
+            <input class="form-check-input" type="checkbox" value="8" id="opiods">
+            <label class="form-check-label" for="opiods">
+              Opiods
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Ayahuasca
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Depressants
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Cocaine
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              DMT
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              GHB
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Hallucinogens
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
+            <input class="form-check-input" type="checkbox" value="4" id="heroin">
+            <label class="form-check-label" for="heroin">
               Heroin
             </label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Inhalants
+            <input class="form-check-input" type="checkbox" value="2" id="crack">
+            <label class="form-check-label" for="crack">
+              Crack/Cocaine
             </label>
-          </div>
+          </div>       
           <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Ketamine
+            <input class="form-check-input" type="checkbox" value="1" id="pyschostimulant">
+            <label class="form-check-label" for="pyschostimulant">
+              Pyschostimulant
             </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Khat
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Kratom
-            </label>
-          </div>
-          </ul>
-          </div>
-
-          <div class="col d-flex align-items-start">
-              <ul>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              LSD
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Marijuana
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              MDMA
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Mescaline
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Methamphetamine
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Over the counter medications
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              PCP
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Salvia
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Steroids
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Synthetic Cannabis
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Bath Salts
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-            <label class="form-check-label" for="defaultCheck1">
-              Tobacco
-            </label>
-          </div>
-          </ul>
-          </div>
-          </div>
-          
-         
-          
+          </div> 
           <!-- Do you engage in sexual activity? -->
           <br>
           <div>
             <label for="sexualActivity">Do you engage in unprotected sex?</label> 
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sex1" value="15">
               <label class="form-check-label" for="inlineRadio1">Yes</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sex2" value="0">
               <label class="form-check-label" for="inlineRadio2">No</label>
             </div>
           </div>
