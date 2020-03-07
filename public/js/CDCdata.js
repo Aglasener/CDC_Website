@@ -1,3 +1,13 @@
+
+$(document).ready(function(){
+ 
+  var url = window.location.search;
+  var userId;
+  if(url.indexOf("?id=") !== -1) {
+      userId = url.split("=")[1];
+      getUser(userId);
+  }
+
 const key = "cd2rpbjy5noro8o4vwvoxbdpi3yaa2ync433cv24bs956nwn3slkqkp4ciaowcdko8mndnr35ax";
 var dataObject = [];
 function chartSetup(dataSet, j) {
@@ -49,7 +59,7 @@ function HBarChart() {
   var bar = chart.selectAll("g")
           .data(data)
       .enter().append("g")
-          
+
   
   bar.append("rect").transition().delay(function(d, i) { return i * 150 })
           .attr("width", x.bandwidth())
@@ -166,20 +176,16 @@ function renderGraphs(state,gender){
     getDeathCause(state);
 }
 
-renderGraphs("Alaska", "Male");
+
+function getUser(user) {
+  userId = "/?id=" + user;
+  $.get("/api/user" + userId, function (data) {
+      console.log("User", data);
+      var state = data.User.state;
+      var gender = data.User.gender;
+      renderGraphs(state,gender);
+  });
+};
 
 
-// function userSelect(id){
-//     $.get("/api/users/" + id), function(data) {
-//         var state = data.state;
-//         var gender = data.gender;
-//         renderGraphs(state,gender);
-//     }
-// };
-
-
-// $("#user-list").on("click", ".user", function(event) {
-//     event.preventDefault();
-//     var id = this.id;
-//     userSelect(id);
-// })
+});

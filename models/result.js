@@ -1,6 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
     var Result = sequelize.define("Result", {
-        location_score: DataTypes.INTEGER,
         alcohol_score: DataTypes.INTEGER,
         age_score: DataTypes.INTEGER,
         tobacco_score: DataTypes.INTEGER,
@@ -8,11 +7,11 @@ module.exports = function(sequelize, DataTypes) {
         obesity_score: DataTypes.INTEGER,
         physical_score: DataTypes.INTEGER,
         sex_score: DataTypes.INTEGER,
-        pre_cond_score: DataTypes.INTEGER
+        total_score: DataTypes.INTEGER
     });
 
     Result.associate = function(models) {
-        Response.belongsTo(models.User, {
+        Result.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false
             }
