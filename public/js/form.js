@@ -1,6 +1,6 @@
 var firstName = $("#firstName");
 var lastName = $("#lastName");
-var birthday = $("#birthMonth").val().trim() + $("#birthDay").val().trim() + $("#birthYear").val().trim();
+var age = $("#age").val().trim();
 var state = $("#state");
 var gender = $("#gender");
 var drugScore = 0;
@@ -47,22 +47,41 @@ function tobaccoValue () {
 }
 
 function ageValue(){
-    var year = $("#birthYear").val().trim();
-    var age = 2020 - Number(year);
-    return age;
+    var ageScore;
+    if (age<=19){
+        ageScore="3";
+    }
+    else if(age>19 && age<=35){
+        ageScore="6";
+    }
+    else if(age>35 && age<=45){
+        ageScore="9";
+    }
+    else if(age>45 && age<=60){
+        ageScore="12";
+    }
+    else{
+        ageScore="15";
+    }
+    return parseInt(ageScore);
 }
 
 function totalScore(){
-    var score = Number(alcoholScore.val().trim()) + 
-                ageValue().trim() +
-                tobaccoValue().trim() +
-                drugValue().trim() +
+    var score = Number(alcoholScore.val()) + 
+                ageValue() +
+                tobaccoValue() +
+                drugValue() +
                 10 +
-                sexValue().trim(),    
+                sexValue();  
+
     return score;
 }
 
-function handleFormSubit(event) {
+
+$(".form-submit").on("click", handleFormSubmit);
+console.log("work");
+
+function handleFormSubmit(event) {
     event.preventDefault();
 
     var newUser = {
@@ -72,47 +91,35 @@ function handleFormSubit(event) {
         last_name: lastName
         .val()
         .trim(),
-        DOB: birthday
-        .trim(),
+        DOB: Number(ageValue()),
         state: state
-        .val()
-        .trim(),
+        .val(),
         gender: gender
-        .val()
-        .trim(),
+        .val(),
         alcohol: Number(alcoholScore
-        .val()
-        .trim()),
-        tobacco_use: tobaccoValue()
-        .trim(),
-        drug_use: drugValue()
-        .trim(),
+        .val()),
+        tobacco_use: tobaccoValue(),
+        drug_use: drugValue(),
         obesity: 10,
-        safe_sex: sexValue()
-        .trim(),
-    }
-
-    var newResult = {
-        alcohol_score: Number(alcoholScore.val().trim()),
-        age_score: ageValue().trim(),
-        tobacco_score: tobaccoValue().trim(),
-        drug_score: drugValue().trim(),
+        safe_sex: sexValue(),  
+        alcohol_score: Number(alcoholScore.val()),
+        age_score: ageValue(),
+        tobacco_score: tobaccoValue(),
+        drug_score: drugValue(),
         obesity_score: 10,
-        sex_score: sexValue().trim(),
-        total_score: totalScore().trim()
+        sex_score: sexValue(),
+        total_score: totalScore()
     }
+    submitUser(newUser);
+    
 }
 
-submitUser(newUser);
+
 
 function submitUser(user) {
     $.post("/api/user", user, function() {
-        window.location.href = "/user";
+        
     });
-    $.post("")
+
   }
-//   function submitResult(result) {
-//     $.post("/api/user", result, function() {
-//       window.location.href = "/user";
-//     });
-//   }
+  
