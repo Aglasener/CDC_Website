@@ -64,12 +64,12 @@ $(document).ready(function(){
         userCardHeading.append(userTotalScore);
 
         userCardBody.append(userAgeScore);
-        userCardBody.append(<br/> + userAlcoholScore);
-        userCardBody.append(<br/> + userTobaccoScore);
-        userCardBody.append(<br/> + userDrugScore);
-        userCardBody.append(<br/> + userObesityScore);
-        userCardBody.append(<br/> + userPhysicalScore);
-        userCardBody.append(<br/> + userSexScore);
+        userCardBody.append("/n" + userAlcoholScore);
+        userCardBody.append("/n" + userTobaccoScore);
+        userCardBody.append("/n" + userDrugScore);
+        userCardBody.append("/n" + userObesityScore);
+        userCardBody.append("/n" + userPhysicalScore);
+        userCardBody.append("/n" + userSexScore);
         
         userCard.append(userCardHeading);
         userCard.append(userCardBody);

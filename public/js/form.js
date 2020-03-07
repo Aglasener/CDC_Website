@@ -49,22 +49,21 @@ function tobaccoValue () {
 function ageValue(){
     var ageScore;
     if (age<=19){
-        ageScore=3;
+        ageScore="3";
     }
     else if(age>19 && age<=35){
-        ageScore=6;
+        ageScore="6";
     }
     else if(age>35 && age<=45){
-        ageScore=9;
+        ageScore="9";
     }
     else if(age>45 && age<=60){
-        ageScore=12;
+        ageScore="12";
     }
     else{
-        ageScore=15;
+        ageScore="15";
     }
-    return ageScore;
-
+    return parseInt(ageScore);
 }
 
 function totalScore(){
@@ -92,8 +91,7 @@ function handleFormSubmit(event) {
         last_name: lastName
         .val()
         .trim(),
-        DOB: age
-        .trim(),
+        DOB: Number(ageValue()),
         state: state
         .val(),
         gender: gender
@@ -103,11 +101,7 @@ function handleFormSubmit(event) {
         tobacco_use: tobaccoValue(),
         drug_use: drugValue(),
         obesity: 10,
-        safe_sex: sexValue()
-        
-    }
-
-    var newResult = {
+        safe_sex: sexValue(),  
         alcohol_score: Number(alcoholScore.val()),
         age_score: ageValue(),
         tobacco_score: tobaccoValue(),
@@ -117,19 +111,15 @@ function handleFormSubmit(event) {
         total_score: totalScore()
     }
     submitUser(newUser);
-
+    
 }
 
 
 
 function submitUser(user) {
     $.post("/api/user", user, function() {
-        window.location.href = "/user";
+        
     });
-    $.post("")
+
   }
-//   function submitResult(result) {
-//     $.post("/api/user", result, function() {
-//       window.location.href = "/user";
-//     });
-//   }
+  
