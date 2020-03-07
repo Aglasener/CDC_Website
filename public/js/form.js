@@ -16,17 +16,22 @@ function handleFormSubit(event) {
         .trim(),
         
     }
+
+
+    var alcoholScore = 
+    var ageScore = 
+    var tobaccoScore = 
+    var drugScore = 
+    var sexScore = 
+    var totalScore = 
+    
+    var newResult = {
+        alcohol_score: alcoholScore.val().trim(),
+        age_score: ageScore.val().trim(),
+        tobacco_score: tobaccoScore.val().trim(),
+        drug_score: drugScore.val().trim(),
+        obesity_score: 10,
+        sex_score: sexScore.val().trim(),
+        total_score: totalScore
+    }
 }
-
-
-first_name: DataTypes.STRING,
-    last_name: DataTypes.STRING,
-    DOB: DataTypes.DATEONLY,
-    state: DataTypes.STRING,
-    gender: DataTypes.STRING,
-    alcohol: DataTypes.INTEGER,
-    tobacco_use: DataTypes.BOOLEAN,
-    drug_use: DataTypes.BOOLEAN,
-    obesity: DataTypes.DECIMAL,
-    physical: DataTypes.BOOLEAN,
-    safe_sex: DataTypes.BOOLEAN,

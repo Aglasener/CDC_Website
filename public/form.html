@@ -1,10 +1,9 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     </head>
-
-    
 
     <body>
 
@@ -12,7 +11,7 @@
         <span class="navbar-brand mb-0 h1">Risk Assessment</span>
       </nav>
 
-      <br>
+
 
         <container>
             <div class="container-fluid">
@@ -21,15 +20,15 @@
 
           <div class="card ">
             <div class="card-header">
-              Entered Info
+              Client Information
             </div>
             <div class="card-body">
                 
           <!-- Personal info heading -->
-          
-          <form>
+
+      <form>
               <div class="row">
-                  <div class="col">
+                  <div class="col md- 6">
                     <ol>
           
           <!-- Name -->
@@ -48,6 +47,7 @@
           <!-- State -->
             <!-- Add state options -->
             <br>
+            <hr>
             <div class="form-group">
                 <label for="inputState">State</label>
                 <select id="state" class="form-control">
@@ -57,6 +57,7 @@
           
           <!-- Date of Birth -->
           <br>
+          <hr>
             <div class="form-row">
                 <div class="form-group col-md-4">
                   <label for="inputMonth">Month</label>
@@ -71,21 +72,7 @@
                   <input type="text" class="form-control" id="birthYear">
                 </div>
               </div>
-
-               <!-- Height and weight? (Target obesity)  -->
-          <!-- <br>
-            <div class="form-row">
-              <div class="col form-group">
-                <label for="obesity">Please enter your height and weight</label> 
-                <input type="text" class="form-control" placeholder="Height">
-              </div>
-              <div class="col form-group">
-                <input type="text" class="form-control" placeholder="Weight">
-              </div>
-            </div>
-           -->
-          
-          <!-- Sex -->
+              <hr>
           <br>
             <div class="form-group">
                 <label for="gender">Gender</label>
@@ -97,40 +84,15 @@
               </div>
 
             </ol>
-              </div>
+              
 
-              <!-- Lifestyle questions heading  -->
-              <div class="col">
-          <!-- <label for="userDrinks">Do you drink Alcohol?</label> 
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            <label class="form-check-label" for="inlineRadio1">Yes</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-            <label class="form-check-label" for="inlineRadio2">No</label>
-          </div>
+  
+        </form>
           
+        <hr>
+        
           <br>
-           -->
-          <label for="drinkNumber">How many alcoholic drinks do you consume per week?</label> 
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="alcohol1" value="0">
-            <label class="form-check-label" for="inlineRadio1">Less than 15</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="alcohol2" value="7.5">
-            <label class="form-check-label" for="inlineRadio2">15-19</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="alcohol3" value="15">
-            <label class="form-check-label" for="inlineRadio3">20 or more</label>
-          </div>
-          </div>
-          
-          
-          
-          <h6>Have you ever used any of the following drugs? Please check all that apply.</h6>
+          <h6>If you are a current drug user, please check all that apply.</h6>
           <div class="row">
               <div class="col d-flex align-items-start">
                   <ul>
@@ -158,10 +120,10 @@
               Pyschostimulant
             </label>
           </div> 
-          <!-- Do you engage in sexual activity? -->
           <br>
+          <hr>
           <div>
-            <label for="sexualActivity">Do you engage in unprotected sex?</label> 
+            <label for="sexualActivity">Have you engaged in unprotected sex in the past?</label> 
             <div class="form-check form-check-inline">
               <input class="form-check-input" type="radio" name="inlineRadioOptions" id="sex1" value="15">
               <label class="form-check-label" for="inlineRadio1">Yes</label>
@@ -171,37 +133,8 @@
               <label class="form-check-label" for="inlineRadio2">No</label>
             </div>
           </div>
+          <hr>
 
-
-          <!-- On a scale of 1 - 5, how likely are you to use contraception -->
-          <!-- <br>
-          <div>
-            <label for="sexualActivity">On a scale of 1 - 5, how likely are you to engage in safe sexual practices?</label> 
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-              <label class="form-check-label" for="inlineRadio1">1</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-              <label class="form-check-label" for="inlineRadio2">2</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-              <label class="form-check-label" for="inlineRadio2">3</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-              <label class="form-check-label" for="inlineRadio2">4</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-              <label class="form-check-label" for="inlineRadio2">5</label>
-            </div>
-          </div> -->
-
-          
-          <!-- Tobacco use? How often? -->
-          <!-- Have you ever used tobacco? -->
           <br>
           <label for="tobaccoUse">Do you regularly use tobacco products?</label>
           <div class="form-check form-check-inline">
@@ -212,45 +145,37 @@
             <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
             <label class="form-check-label" for="inlineRadio2">No</label>
           </div>
-          <!-- If so, how long did you use it -->
-          <!-- How many days out of the week do you use tobacco? -->
-          <!-- <br>
-          <label for="tobaccoFrequency">If so, how many days a week do you use tobacco?</label>
+
+          <hr>
+
+          <br>
+
+          <label for="drinkNumber">How many alcoholic drinks do you consume per week?</label> 
+          <form id = "alcohol-form">
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            <label class="form-check-label" for="inlineRadio1">1</label>
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="alcohol1" value="0">
+            <label class="form-check-label" for="inlineRadio1">Less than 15</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-            <label class="form-check-label" for="inlineRadio2">2</label>
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="alcohol2" value="7.5">
+            <label class="form-check-label" for="inlineRadio2">15-19</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            <label class="form-check-label" for="inlineRadio1">3</label>
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="alcohol3" value="15">
+            <label class="form-check-label" for="inlineRadio3">20 or more</label>
           </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-            <label class="form-check-label" for="inlineRadio2">4</label>
+          </form>
           </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            <label class="form-check-label" for="inlineRadio1">5</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-            <label class="form-check-label" for="inlineRadio2">6</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-            <label class="form-check-label" for="inlineRadio2">7</label>
-          </div> -->
+        </div>
+        </form>
           </div>
         </div>
         <br>
+        <hr>
         <button type="button" class="btn btn-primary">Submit</button>
           </form>
           </div>
-          </container>
+    </container>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -261,35 +186,13 @@
                 "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma" , "Oregon", "Pennsylvania", "Rhode Island", 
                 "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"];
 
-    var drugs = [];
-
-    var firstName = $("#firstName").val();
-    var lastName = $("#lastName").val();
-    var birthDay = $("#inputMonth").val() + $("#inputDay").val() + $("#inputYear").val();
-    // var gender = $("#genderInput").selected("true")
-
-    function pushDrugs(drugs) {
-      for (var i = 0; i < drugs.length; i++) {
-        let listItem = `
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="drugVal${i}">
-            <label class="form-check-label" for="drugVal${i}">
-              ${drugs[i]}
-            </label>
-          </div>
-        `
-      }
-    }
-
     function pushState() {
       for (var i = 0; i < states.length; i++) {
-        let stateItem = `
-        <option>${states[i]}</option>
-        `;
+        let stateItem = `<option>${states[i]}</option>`;
         $("#state").append(stateItem)
-      }
+      } 
     }
-pushState()
+    pushState()
   </script>
 
     </body>
