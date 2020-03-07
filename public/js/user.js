@@ -2,14 +2,7 @@ $(document).ready(function(){
     var userContainer = $(".user-container");
     var url = window.location.search;
     var userId;
-    
-    if(url.indexOf("?id=") !== -1) {
-        userId = url.split("=")[1];
-        getUser(userId);
-    }
-    
-
-    function getUser(user) {
+        function getUser(user) {
         userId = "/?id=" + user;
         $.get("/api/user" + userId, function (data) {
             console.log("User", data);
@@ -19,6 +12,14 @@ $(document).ready(function(){
             
         });
     };
+    
+    if(url.indexOf("?id=") !== -1) {
+        userId = url.split("=")[1];
+        getUser(userId);
+    }
+    
+
+
 
       
     function initializeDisplay(result) {

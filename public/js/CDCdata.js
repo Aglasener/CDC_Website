@@ -179,9 +179,11 @@ function renderGraphs(state,gender){
 function getUser(user) {
   userId = "/?id=" + user;
   $.get("/api/user" + userId, function (data) {
-      console.log("User", data);
-      var state = data.User.state;
-      var gender = data.User.gender;
+      console.log(data);
+      console.log(data[0].state);
+      console.log(data[0].gender);
+      var state = data[0].state;
+      var gender = data[0].gender;
       renderGraphs(state,gender);
   });
 };
