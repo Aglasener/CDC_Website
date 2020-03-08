@@ -1,0 +1,33 @@
+.btn-primary-outline {
+    background-color: transparent;
+    border-color:white;
+    color: white;
+  }
+
+.navbar {
+    font-family: 'Oxanium', cursive;
+    font-size: 40px;
+    color: white;
+}
+
+.navbar-brand {
+    font-size: 40px;
+}
+
+body {
+    background-image: url("image.png");
+    
+   }
+
+   #jumbo {
+    background: rgba(0,0,0,0.7);
+    color: white;
+    width: 550px;
+    margin: auto;
+    border-color: black;
+    
+    
+  }
+
+ 
+  
