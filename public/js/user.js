@@ -26,7 +26,7 @@ $(document).ready(function(){
         userContainer.empty();
 
         var userCard = $(".user-container");
-        userCard.addClass("card");
+        userCard.addClass("card text-center ml-5 mr-5");
         var userCardHeading = $("<div>");
         userCardHeading.addClass("card-header");
         var userCardBody = $("<div>");
