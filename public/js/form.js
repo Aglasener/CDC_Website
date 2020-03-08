@@ -109,8 +109,14 @@ function handleFormSubmit(event) {
 
 
 function submitUser(user) {
-    $.post("/api/user", user, function() {
-         window.location.href = "/user";
+    $.post("/api/user", user, function(data) {
+        $.get("/api/user", function(data){
+            var id = data.length;
+            window.location.href ="/user?id="+id;
+        })
+
+         
+
     });
   } 
 

@@ -2,13 +2,20 @@
 
 /* for charts */
 
-.horizChart1 {
+.horizChart1, .horizChart2, .horizChart3 {
   fill: steelblue;
 }
-.horizChart1 text {
+.horizChart1 text, .horizChart2 text {
   fill: black;
   font: 8px sans-serif;
   text-anchor: end;
+}
+
+.horizChart3 text{
+  fill: black;
+  font: 11px sans-serif;
+  text-anchor: end;
+  
 }
 
 .axis text {
