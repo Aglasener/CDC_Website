@@ -20,6 +20,15 @@ module.exports = function(app) {
   app.get("/form", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/form.html"));
   });
+
+  
+  app.get("/user/:id", function(req, res) {
+    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+      res.render("example", {
+        example: dbExample
+      });
+    });
+  });
 }
  
 // var db = require("../models");
