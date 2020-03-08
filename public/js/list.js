@@ -32,7 +32,7 @@ $(document).ready(function() {
     function createNewRow(User) {
         
         var newUserCard = $("<div>");
-        newUserCard.addClass("card");
+        newUserCard.addClass("card text-center mr-5 ml-5");
         var newUserCardHeading = $("<div>");
         newUserCardHeading.addClass("card-header");
         var viewBtn = $("<button>");
