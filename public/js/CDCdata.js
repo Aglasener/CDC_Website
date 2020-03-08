@@ -69,7 +69,7 @@ function HBarChart(dataObject, state) {
             .attr("height", d => y(0) - y(d.value))
             .attr("y", d => y(d.value))
             .attr("x", (d, i) => x(i))
-            .attr("fill", function(d,i) { if(d.name == "AL") { return "orange"} }   )
+            //.attr("fill", function(d,i) { if(d.name == state) { return "orange"} }   )
         
     bar.append("text").transition().delay(function(d, i) { return i * 75 })
         .attr("y", d => y(d.value) - 4)
@@ -135,11 +135,11 @@ function HBarChart2(dataObject) {
           .attr("height", d => y(0) - y(d.value))
           .attr("y", d => y(d.value))
           .attr("x", (d, i) => x(i))
-          .attr("fill", function(d,i) { if(d.name == "Moses") { return "orange"} }   )
+          //.attr("fill", function(d,i) { if(d.name == "Moses") { return "orange"} }   )
       
   bar.append("text").transition().delay(function(d, i) { return i * 150 })
       .attr("y", d => y(d.value) - 4)
-      .attr("x", (d, i) => x(i) + x.bandwidth() * .2)
+      .attr("x", (d, i) => x(i) + x.bandwidth() * .5)
       .attr("dx", ".35em")
       .text(function (d) { return d.value; });
   
@@ -206,7 +206,7 @@ function HBarChart2(dataObject) {
       .attr("height", d => y(0) - y(d.value))
       .attr("y", d => y(d.value))
       .attr("x", (d, i) => x(i))
-      .attr("fill", function (d, i) { if (d.name == "Moses") { return "orange" } })
+      //.attr("fill", function (d, i) { if (d.name == "Moses") { return "orange" } })
 
     bar.append("text").transition().delay(function (d, i) { return i * 150 })
       .attr("y", d => y(d.value) - 4)
@@ -255,7 +255,13 @@ function Donut(risk){
           .text(risk)
           .attr("font-size", "30px")
           .attr("x", "232px")
-          .attr("y", "152px")
+          .attr("y", "152px");
+
+  var title = svg.append("text")
+          .text("Risk Score")
+          .attr("font-size", "30px")
+          .attr("x", "200px")
+          .attr("y", "40px");
   
   foreground.transition().duration(1500).attrTween("d", arcTween((risk / 100) * tau))
   

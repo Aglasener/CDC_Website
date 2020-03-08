@@ -5,13 +5,13 @@
 .horizChart1, .horizChart2, .horizChart3 {
   fill: steelblue;
 }
-.horizChart1 text, .horizChart2 text {
+.horizChart1 text  {
   fill: black;
   font: 8px sans-serif;
   text-anchor: end;
 }
 
-.horizChart3 text{
+.horizChart3 text, .horizChart2 text{
   fill: black;
   font: 11px sans-serif;
   text-anchor: end;
@@ -41,4 +41,8 @@
   stroke: #000;
   shape-rendering: crispEdges;
   
+}
+
+.donut {
+  margin: auto;
 }
