@@ -1,20 +1,18 @@
 
 
 /* for charts */
-.chart rect {
+
+.horizChart1 {
   fill: steelblue;
 }
-.horizChart {
-  fill: steelblue;
-}
-.chart text {
+.horizChart1 text {
   fill: black;
-  font: 10px sans-serif;
+  font: 8px sans-serif;
   text-anchor: end;
 }
 
 .axis text {
-  font: 10px sans-serif;
+  font: 8px sans-serif;
 }
 
 .axis path,

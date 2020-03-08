@@ -2,7 +2,14 @@ $(document).ready(function(){
     var userContainer = $(".user-container");
     var url = window.location.search;
     var userId;
-        function getUser(user) {
+    
+    if(url.indexOf("?id=") !== -1) {
+        userId = url.split("=")[1];
+        getUser(userId);
+    }
+    
+
+    function getUser(user) {
         userId = "/?id=" + user;
         $.get("/api/user" + userId, function (data) {
             console.log("User", data);
@@ -12,20 +19,13 @@ $(document).ready(function(){
             
         });
     };
-    
-    if(url.indexOf("?id=") !== -1) {
-        userId = url.split("=")[1];
-        getUser(userId);
-    }
-    
-
-
 
       
     function initializeDisplay(result) {
+        console.log(result[0].total_score )
         userContainer.empty();
 
-        var userCard = $("<div>");
+        var userCard = $(".user-container");
         userCard.addClass("card");
         var userCardHeading = $("<div>");
         userCardHeading.addClass("card-header");
@@ -44,7 +44,7 @@ $(document).ready(function(){
         var userSexScore = $("<h3>");
         
         
-        userName.text(result.User.first_name + " " + result.User.last_name);
+        userName.text(result[0].first_name + " " + result[0].last_name);
         userTotalScore.text("Total Risk Score: " + result.total_score)
         userTotalScore.css({
             float: "right",
@@ -77,4 +77,6 @@ $(document).ready(function(){
         
         return userCard;
     }
+
+getUser()
 });
