@@ -3,48 +3,76 @@ var lastName = $("#lastName");
 var age = $("#age").val().trim();
 var state = $("#state");
 var gender = $("#gender");
-var drugScore = 0;
-var sexScore = 0;
-var tobaccoScore = 0;
-var alcoholScore = $("#alcohol-form");
+var alcholPercentage = $("input[name='alcholPercentage']:checked").val()
 
-
+console.log("THE ALCHOL PERCENTAGE", Number(alcholPercentage)); 
 function drugValue () {
-    
-    if ($("#opiods").checked = true){
+    debugger
+    var drugScore = 0;
+    if ($("input[name='drugPercentageValue']:checked").val() != undefined){
+        console.log("THE VALUE", )
         drugScore+= 8;
     }
-    if ($("#heroin").checked = true){
-        drugScore+= 8;
+    if ($("input[name='drugPercentageHeroin']:checked").val() != undefined){
+        drugScore+= 4;
     }
-    if ($("#crack").checked = true){
-        drugScore+= 8;
+    if ($("input[name='drugPercentagecrack']:checked").val() != undefined){
+        drugScore+= 2;
     }
-    if ($("#pyschostimulant").checked = true){
-        drugScore+= 8;
+  
+    if ($("input[name='drugPercentagestimulant']:checked").val() != undefined){
+        drugScore+= 1;
     }
     return drugScore;
 }
 
 function sexValue () {
+    var sexScore = 0;
     if ($("#sex1").checked = true){
-        sexScore+= 15;
+        sexScore = 15;
+        return sexScore;
     }
     else {
         sexScore = 0;
+        return sexScore;
     }
-    return sexScore;
+    
 }
 
 function tobaccoValue () {
+    var tobaccoScore = 0;
+
     if ($("#tobaccoYes").checked = true){
-        tobaccoScore+= 20;
+        tobaccoScore = 20;
+        return tobaccoScore;
     }
     else {
-        tobaccoScore - 0;
+        tobaccoScore = 0;
+        return tobaccoScore;
     }
-    return tobaccoScore;
+    
 }
+
+/* function alcoholValue () {
+    debugger
+    var alcoholScore = 0;
+
+    if ($("#alcohol1").attr('checked')){
+        alcoholScore = 0;
+        return alcoholScore;
+        //return 0;
+    }
+    else if ($("#alcohol2").attr('checked')){
+        alcoholScore = 7;
+        return alcoholScore;
+    }
+    else {
+        alcoholScore = 15;
+        return alcoholScore;
+    }
+    
+} */
+
 
 function ageValue(){
     var ageScore;
@@ -67,7 +95,8 @@ function ageValue(){
 }
 
 function totalScore(){
-    var score = Number(alcoholScore.val()) + 
+    var percentage = Number($("input[name='alcholPercentage']:checked").val())
+    var score = percentage + 
                 ageValue() +
                 tobaccoValue() +
                 drugValue() +
@@ -79,6 +108,7 @@ function totalScore(){
 
 
 $(".form-submit").on("click", handleFormSubmit);
+debugger
 console.log("work");
 
 function handleFormSubmit(event) {
@@ -96,13 +126,12 @@ function handleFormSubmit(event) {
         .val(),
         gender: gender
         .val(),
-        alcohol: Number(alcoholScore
-        .val()),
+        alcohol:Number($("input[name='alcholPercentage']:checked").val()),
         tobacco_use: tobaccoValue(),
         drug_use: drugValue(),
         obesity: 10,
         safe_sex: sexValue(),  
-        alcohol_score: Number(alcoholScore.val()),
+        alcohol_score: Number($("input[name='alcholPercentage']:checked").val()),
         age_score: ageValue(),
         tobacco_score: tobaccoValue(),
         drug_score: drugValue(),
