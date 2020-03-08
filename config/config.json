@@ -2,7 +2,9 @@
   "development": {
     "username": "root",
 
+
     "password": "sqlpassword",
+
 
     "database": "riskvalues_db",
     "host": "localhost",
