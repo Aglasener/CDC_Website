@@ -25,7 +25,7 @@ $(document).ready(function() {
         for (var i = 0; i < users.length; i++) {
             usersToAdd.push(createNewRow(users[i]));
         }
-        usersContainer.append(usersToAdd);
+        usersContainer.prepend(usersToAdd);
     };
 
   
@@ -39,17 +39,17 @@ $(document).ready(function() {
         viewBtn.text("VIEW");
         viewBtn.addClass("view btn btn-info");
         var newUserName = $("<h2>");
-        var newUserDOB = $("<h3>");
+        var newUserScore = $("<h3>");
         var newUserGender = $("<h3>");
         
         var newUserCardBody = $("<div>");
         newUserCardBody.addClass("card-body");
         newUserName.text(User.first_name + " " + User.last_name);
-        newUserDOB.text("DOB: " + User.DOB);
+        newUserScore.text("Risk Score: " + User.total_score);
         newUserGender.text(User.gender);
         newUserCardHeading.append(viewBtn);
         newUserCardHeading.append(newUserName);
-        newUserCardBody.append(newUserDOB);
+        newUserCardBody.append(newUserScore);
         newUserCardBody.append(newUserGender);
         newUserCard.append(newUserCardHeading);
         newUserCard.append(newUserCardBody);
