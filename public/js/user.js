@@ -5,28 +5,28 @@ $(document).ready(function(){
     
     if(url.indexOf("?id=") !== -1) {
         userId = url.split("=")[1];
+        console.log(userId);
         getUser(userId);
     }
     
 
     function getUser(user) {
-        userId = "/?id=" + user;
-        $.get("/api/user" + userId, function (data) {
-            console.log("User", data);
-            user=data;
-
-            initializeDisplay(user);
+        var queryURL = "/api/user/" + user;
+        
+        $.get(queryURL, function (data) {
+            console.log(data);
+            initializeDisplay(data);
             
         });
     };
 
       
     function initializeDisplay(result) {
-        console.log(result[0].total_score )
+        console.log(result.total_score )
         userContainer.empty();
 
         var userCard = $(".user-container");
-        userCard.addClass("card");
+        userCard.addClass("card text-center ml-5 mr-5");
         var userCardHeading = $("<div>");
         userCardHeading.addClass("card-header");
         var userCardBody = $("<div>");
@@ -43,18 +43,18 @@ $(document).ready(function(){
         var userSexScore = $("<h3>");
         
         
-        userName.text(result[0].first_name + " " + result[0].last_name);
-        userTotalScore.text("Total Risk Score: " + result[0].total_score)
+        userName.text(result.first_name + " " + result.last_name);
+        userTotalScore.text("Total Risk Score: " + result.total_score)
         userTotalScore.css({
             color: "blue",
             });
 
-        userAgeScore.text("Age Risk Score: " + result[0].age_score);
-        userAlcoholScore.text("Alcohol Risk Score: " + result[0].alcohol_score);
-        userTobaccoScore.text("Tobacco Risk Score: " + result[0].tobacco_score);
-        userDrugScore.text("Drug Risk Score: " + result[0].drug_score);
-        userObesityScore.text("Obesity Risk Score: " + result[0].obesity_score);
-        userSexScore.text("Unsafe Sex Risk Score: " + result[0].sex_score);
+        userAgeScore.text("Age Risk Score: " + result.age_score);
+        userAlcoholScore.text("Alcohol Risk Score: " + result.alcohol_score);
+        userTobaccoScore.text("Tobacco Risk Score: " + result.tobacco_score);
+        userDrugScore.text("Drug Risk Score: " + result.drug_score);
+        userObesityScore.text("Obesity Risk Score: " + result.obesity_score);
+        userSexScore.text("Unsafe Sex Risk Score: " + result.sex_score);
 
         userCardHeading.append(userName);
         userCardHeading.append(userTotalScore);

@@ -377,14 +377,14 @@ function renderGraphs(state,gender){
 
 
 function getUser(user) {
-  userId = "/?id=" + user;
+  userId = "/" + user;
   $.get("/api/user" + userId, function (data) {
       console.log(data);
-      console.log(data[0].state);
-      console.log(data[0].gender);
-      var state = data[0].state;
-      var gender = data[0].gender;
-      var risk = data[0].total_score
+      console.log(data.state);
+      console.log(data.gender);
+      var state = data.state;
+      var gender = data.gender;
+      var risk = data.total_score
       renderGraphs(state,gender);
       Donut(risk)
   });

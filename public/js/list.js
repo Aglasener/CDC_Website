@@ -1,6 +1,7 @@
 $(document).ready(function() {
     var usersContainer = $(".users-container");
     $(document).on("click", "button.view", handleUserView);
+    $(document).on("click", "button.delete", deletePost);
     var users;
     getUsers();
 
@@ -32,25 +33,31 @@ $(document).ready(function() {
     function createNewRow(User) {
         
         var newUserCard = $("<div>");
-        newUserCard.addClass("card");
+        newUserCard.addClass("card text-center mr-5 ml-5");
         var newUserCardHeading = $("<div>");
         newUserCardHeading.addClass("card-header");
         var viewBtn = $("<button>");
         viewBtn.text("VIEW");
         viewBtn.addClass("view btn btn-info");
+        var deleteBtn = $("<button>");
+        deleteBtn.text("DELETE");
+        deleteBtn.addClass("delete btn btn-danger ml-2");
         var newUserName = $("<h2>");
         var newUserScore = $("<h3>");
         var newUserGender = $("<h3>");
+
+        
         
         var newUserCardBody = $("<div>");
         newUserCardBody.addClass("card-body");
         newUserName.text(User.first_name + " " + User.last_name);
         newUserScore.text("Risk Score: " + User.total_score);
         newUserGender.text(User.gender);
-        newUserCardHeading.append(viewBtn);
         newUserCardHeading.append(newUserName);
         newUserCardBody.append(newUserScore);
         newUserCardBody.append(newUserGender);
+        newUserCardBody.append(viewBtn);
+        newUserCardBody.append(deleteBtn);
         newUserCard.append(newUserCardHeading);
         newUserCard.append(newUserCardBody);
         newUserCard.data("user", User);
@@ -68,6 +75,22 @@ $(document).ready(function() {
         window.location.href = "/user?id=" + currentUser.id;
     }
 
+
+    function deletePost() {
+        var currentUser = $(this)
+        .parent()
+        .parent()
+        .data("user");
+        $.ajax({
+            method: "DELETE",
+            url: "api/user/" + currentUser.id
+            })
+            .then(
+                window.location.href = ""
+            );
+          }
+    
+
     
     function displayEmpty() {
         usersContainer.empty();
@@ -76,5 +99,7 @@ $(document).ready(function() {
         messageH2.html("No Users yet");
         usersContainer.append(messageH2);
     }
+
+    
 
 });
