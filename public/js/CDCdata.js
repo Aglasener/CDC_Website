@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 const key = "cd2rpbjy5noro8o4vwvoxbdpi3yaa2ync433cv24bs956nwn3slkqkp4ciaowcdko8mndnr35ax";
 var dataObject = [];
-
+var risk
 
 var margin = {
   top: 20,
@@ -25,60 +25,68 @@ var margin = {
 
 function HBarChart(dataObject) {
 
-var dataObject = dataObject.filter(function (el) {
-  return el.value > 0
-  }).sort((a, b) => b.value - a.value ) 
-console.log(dataObject)
-// setting inner dimensions of chart and bar width by subtracting out the margins
-var width = 900 ;
-var height = 300 ;
+    var dataObject = dataObject.filter(function (el) {
+      return el.value > 0
+      }).sort((a, b) => b.value - a.value ) 
+    console.log(dataObject)
+    // setting inner dimensions of chart and bar width by subtracting out the margins
+    var width = 900 ;
+    var height = 300 ;
 
 
-// Setting x and y scales of the chart. Here, y will be used to sort, x will be numeric scale
-var y = d3.scaleLinear()
-    .domain([0, d3.max(dataObject, function(d){ return d.value})]).nice()
-    .range([height - margin.bottom,  margin.top]);
+    // Setting x and y scales of the chart. Here, y will be used to sort, x will be numeric scale
+    var y = d3.scaleLinear()
+        .domain([0, d3.max(dataObject, function(d){ return d.value})]).nice()
+        .range([height - margin.bottom,  margin.top]);
 
-var x = d3.scaleBand()
-    .domain(d3.range(dataObject.length))
-    .range([margin.left, width - margin.right ])
-    .padding(0.1);
+    var x = d3.scaleBand()
+        .domain(d3.range(dataObject.length))
+        .range([margin.left, width - margin.right ])
+        .padding(0.1);
 
-    console.log(y(10))
-// build our x and y AXIS that will perform sorting and add stylized scale to chart
-var yAxis = g => g
-    .attr("transform", "translate(" + margin.left + ",0)")
-    .call(d3.axisLeft(y))
-    .call(g => g.select(".domain").remove());
+        console.log(y(10))
+    // build our x and y AXIS that will perform sorting and add stylized scale to chart
+    var yAxis = g => g
+        .attr("transform", "translate(" + margin.left + ",0)")
+        .call(d3.axisLeft(y))
+        .call(g => g.select(".domain").remove());
 
-var xAxis = g => g
-    .attr("transform", `translate(0,${height - margin.bottom})`)
-    .call(d3.axisBottom(x).tickFormat(i => dataObject[i].name).tickSizeOuter(0))
+    var xAxis = g => g
+        .attr("transform", `translate(0,${height - margin.bottom})`)
+        .call(d3.axisBottom(x).tickFormat(i => dataObject[i].name).tickSizeOuter(0))
 
-var chart = d3.select(".horizChart1")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  
-var bar = chart.selectAll("g")
-        .data(dataObject)
-    .enter().append("g")
-        //.attr("transform", function(d, i) { return "translate(0," + i  + ")"; })
+    var chart = d3.select(".horizChart1")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      
+    var bar = chart.selectAll("g")
+            .data(dataObject)
+        .enter().append("g")
+            //.attr("transform", function(d, i) { return "translate(0," + i  + ")"; })
 
-bar.append("rect").transition().delay(function(d, i) { return i * 150 })
-        .attr("width", x.bandwidth())
-        .attr("height", d => y(0) - y(d.value))
-        .attr("y", d => y(d.value))
-        .attr("x", (d, i) => x(i))
-        .attr("fill", function(d,i) { if(d.name == "Moses") { return "orange"} }   )
-    
-bar.append("text").transition().delay(function(d, i) { return i * 150 })
-    .attr("y", d => y(d.value) - 4)
-    .attr("x", (d, i) => x(i) + x.bandwidth() / 2)
-    .attr("dx", ".35em")
-    .text(function (d) { return d.value; });
+    bar.append("rect").transition().delay(function(d, i) { return i * 75 })
+            .attr("width", x.bandwidth())
+            .attr("height", d => y(0) - y(d.value))
+            .attr("y", d => y(d.value))
+            .attr("x", (d, i) => x(i))
+            .attr("fill", function(d,i) { if(d.name == "Moses") { return "orange"} }   )
+        
+    bar.append("text").transition().delay(function(d, i) { return i * 75 })
+        .attr("y", d => y(d.value) - 4)
+        .attr("x", (d, i) => x(i) + x.bandwidth() / 2)
+        .attr("dx", ".35em")
+        .text(function (d) { return d.value; });
 
-chart.append("g").call(xAxis).selectAll("text").attr("transform", "rotate(90)").style("text-anchor", "start").attr("x", 9).attr("y", 0) ;
-chart.append("g").call(yAxis);
+    chart.append("g").call(xAxis).selectAll("text").attr("transform", "rotate(90)").style("text-anchor", "start").attr("x", 9).attr("y", 0) ;
+    chart.append("g").call(yAxis);
+
+    chart.append("text")
+        .attr("x", width * .6)             
+        .attr("y", 0 + margin.top)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Obesity Rates by State, 2018");
 
 };
 
@@ -137,8 +145,16 @@ function HBarChart2(dataObject) {
   
   chart.append("g").call(xAxis).selectAll("text").attr("transform", "rotate(90)").style("text-anchor", "start").attr("x", 9).attr("y", 0) ;
   chart.append("g").call(yAxis);
+
+  chart.append("text")
+        .attr("x", width * .6)             
+        .attr("y", 0 + margin.top)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Overdose in State by Drug, 2018");
     
-    }
+}
  
   function HBarChart3(dataObject) {
     var dataObject = dataObject.filter(function (el) {
@@ -196,8 +212,67 @@ function HBarChart2(dataObject) {
     chart.append("g").call(xAxis).selectAll("text").attr("transform", "rotate(90)").style("text-anchor", "start").attr("x", 9).attr("y", 0);
     chart.append("g").call(yAxis);
 
-  }
+    chart.append("text")
+        .attr("x", width * .6)             
+        .attr("y", 0 + margin.top)
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Cause of Death for State, 2018");
+
+}
+
+function Donut(risk){ 
+
+  var tau = 2 * Math.PI;
   
+  var arc = d3.arc()
+      .innerRadius(70)
+      .outerRadius(100)
+      .startAngle(0);
+  
+  var svg = d3.select(".donut"),
+      width = +svg.attr("width"),
+      height = +svg.attr("height"),
+      g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+  
+  var background = g.append("path")
+      .datum({ endAngle: tau })
+      .style("fill", "#ddd")
+      .attr("d", arc);
+  
+  var foreground = g.append("path")
+      .datum({ endAngle: 0 * tau })
+      .style("fill", "orange")
+      .attr("d", arc);
+  
+  var score = svg.append("text")
+          .text(risk)
+          .attr("font-size", "30px")
+          .attr("x", "232px")
+          .attr("y", "152px")
+  
+  foreground.transition().duration(1500).attrTween("d", arcTween((risk / 100) * tau))
+  
+  
+  function arcTween(newAngle) {
+  
+
+      return function(d) {
+
+        var interpolate = d3.interpolate(d.endAngle, newAngle);
+ 
+        return function(t) {
+
+          d.endAngle = interpolate(t);
+
+          return arc(d);
+        };
+      };
+    }
+  }
+
+
 var obesityData = function(data) {
   dataObject = [];
     for (let i = 0; i < data.length; i++){
@@ -296,7 +371,9 @@ function getUser(user) {
       console.log(data[0].gender);
       var state = data[0].state;
       var gender = data[0].gender;
+      var risk = data[0].total_score
       renderGraphs(state,gender);
+      Donut(risk)
   });
 };
 

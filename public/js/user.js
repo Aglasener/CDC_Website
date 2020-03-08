@@ -45,7 +45,7 @@ $(document).ready(function(){
         
         
         userName.text(result[0].first_name + " " + result[0].last_name);
-        userTotalScore.text("Total Risk Score: " + result.total_score)
+        userTotalScore.text("Total Risk Score: " + result[0].total_score)
         userTotalScore.css({
             float: "right",
             color: "blue",
@@ -53,13 +53,13 @@ $(document).ready(function(){
             "-10px"
         });
 
-        userAgeScore.text("Age Risk Score: " + result.age_score);
-        userAlcoholScore.text("Alcohol Risk Score: " + result.alcohol_score);
-        userTobaccoScore.text("Tobacco Risk Score: " + result.tobacco_score);
-        userDrugScore.text("Drug Risk Score: " + result.drug_score);
-        userObesityScore.text("Obesity Risk Score: " + result.obesity_score);
-        userPhysicalScore.text("Physical Activty Score: " + result.physical_score);
-        userSexScore.text("Unsafe Sex Risk Score: " + result.sex_score);
+        userAgeScore.text("Age Risk Score: " + result[0].age_score);
+        userAlcoholScore.text("Alcohol Risk Score: " + result[0].alcohol_score);
+        userTobaccoScore.text("Tobacco Risk Score: " + result[0].tobacco_score);
+        userDrugScore.text("Drug Risk Score: " + result[0].drug_score);
+        userObesityScore.text("Obesity Risk Score: " + result[0].obesity_score);
+        userPhysicalScore.text("Physical Activty Score: " + result[0].physical_score);
+        userSexScore.text("Unsafe Sex Risk Score: " + result[0].sex_score);
 
         userCardHeading.append(userName);
         userCardHeading.append(userTotalScore);
