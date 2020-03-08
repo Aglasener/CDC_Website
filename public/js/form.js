@@ -9,7 +9,7 @@ console.log("THE ALCHOL PERCENTAGE", Number(alcholPercentage));
 console.log(age);
 
 function drugValue () {
-     
+    
     var drugScore = 0;
     if ($("input[name='drugPercentageValue']:checked").val() != undefined){
         console.log("THE VALUE", )
@@ -89,9 +89,10 @@ function ageValue(){
 }
 
 function totalScore(){
+    var score = 0;
     var percentage = Number($("input[name='alcholPercentage']:checked").val())
-    var sex = $("input[name='sex']:checked").val();
-    var score = percentage + 
+    var sex = Number($("input[name='sex']:checked").val());
+    score = percentage + 
                 ageValue() +
                 tobaccoValue() +
                 drugValue() +
@@ -103,7 +104,6 @@ function totalScore(){
 
 
 $(".form-submit").on("click", handleFormSubmit);
- 
 console.log("work");
 
 function handleFormSubmit(event) {
@@ -132,7 +132,7 @@ function handleFormSubmit(event) {
         tobacco_score: tobaccoValue(),
         drug_score: drugValue(),
         obesity_score: 10,
-        sex_score: sexValue(),
+        sex_score: sex,
         total_score: totalScore()
     }
     submitUser(newUser);
@@ -145,5 +145,4 @@ function submitUser(user) {
     $.post("/api/user", user, function() {
          window.location.href ="/user";
     });
-
   } 
