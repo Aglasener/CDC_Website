@@ -48,7 +48,7 @@ function drugValue () {
 } */
 
 /* function alcoholValue () {
-    debugger
+     
     var alcoholScore = 0;
 
     if ($("#alcohol1").attr('checked')){
@@ -107,7 +107,6 @@ function totalScore(){
 
 
 $(".form-submit").on("click", handleFormSubmit);
-
 console.log("work");
 
 function handleFormSubmit(event) {
@@ -147,6 +146,10 @@ function handleFormSubmit(event) {
 
 function submitUser(user) {
     $.post("/api/user", user, function() {
-        // window.location.href ="/user";
+
+        window.location.href ="/user";
+
+         window.location.href ="/user";
+
     });
   } 
