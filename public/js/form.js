@@ -1,11 +1,13 @@
 var firstName = $("#firstName");
 var lastName = $("#lastName");
-var age = $("#age").val().trim();
+
 var state = $("#state");
 var gender = $("#gender");
 var alcholPercentage = $("input[name='alcholPercentage']:checked").val()
 
-console.log("THE ALCHOL PERCENTAGE", Number(alcholPercentage)); 
+console.log("THE ALCHOL PERCENTAGE", Number(alcholPercentage));
+console.log(age);
+
 function drugValue () {
     debugger
     var drugScore = 0;
@@ -75,6 +77,8 @@ function tobaccoValue () {
 
 
 function ageValue(){
+    var age = $("#age").val();
+    console.log(age);
     var ageScore;
     if (age<=19){
         ageScore="3";
@@ -113,7 +117,7 @@ console.log("work");
 
 function handleFormSubmit(event) {
     event.preventDefault();
-
+    console.log(age);
     var newUser = {
         first_name: firstName
         .val()
@@ -147,7 +151,7 @@ function handleFormSubmit(event) {
 
 function submitUser(user) {
     $.post("/api/user", user, function() {
-        window.location.href ="/user";
+        // window.location.href ="/user";
     });
 
   }
