@@ -31,42 +31,6 @@ function drugValue () {
 }
 
 
-    
-
-/* function tobaccoValue () {
-    var tobaccoScore = 0;
-
-    if ($("#tobaccoYes").checked = true){
-        tobaccoScore = 20;
-        return tobaccoScore;
-    }
-    else {
-        tobaccoScore = 0;
-        return tobaccoScore;
-    }
-     d
-} */
-
-/* function alcoholValue () {
-    debugger
-    var alcoholScore = 0;
-
-    if ($("#alcohol1").attr('checked')){
-        alcoholScore = 0;
-        return alcoholScore;
-        //return 0;
-    }
-    else if ($("#alcohol2").attr('checked')){
-        alcoholScore = 7;
-        return alcoholScore;
-    }
-    else {
-        alcoholScore = 15;
-        return alcoholScore;
-    }
-    
-} */
-
 
 function ageValue(){
     var age = $("#age").val();
@@ -107,7 +71,6 @@ function totalScore(){
 
 
 $(".form-submit").on("click", handleFormSubmit);
-
 console.log("work");
 
 function handleFormSubmit(event) {
@@ -147,6 +110,10 @@ function handleFormSubmit(event) {
 
 function submitUser(user) {
     $.post("/api/user", user, function() {
-        // window.location.href ="/user";
+
+
+         window.location.href ="/user";
+
     });
   } 
+

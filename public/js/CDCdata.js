@@ -69,7 +69,7 @@ function HBarChart(dataObject, state) {
             .attr("height", d => y(0) - y(d.value))
             .attr("y", d => y(d.value))
             .attr("x", (d, i) => x(i))
-            .attr("fill", function(d,i) { if(d.name == state) { return "orange"} }   )
+            .attr("fill", function(d,i) { if(d.name == "AL") { return "orange"} }   )
         
     bar.append("text").transition().delay(function(d, i) { return i * 75 })
         .attr("y", d => y(d.value) - 4)
@@ -139,7 +139,7 @@ function HBarChart2(dataObject) {
       
   bar.append("text").transition().delay(function(d, i) { return i * 150 })
       .attr("y", d => y(d.value) - 4)
-      .attr("x", (d, i) => x(i) + x.bandwidth() / 2)
+      .attr("x", (d, i) => x(i) + x.bandwidth() * .2)
       .attr("dx", ".35em")
       .text(function (d) { return d.value; });
   
@@ -152,7 +152,7 @@ function HBarChart2(dataObject) {
         .attr("text-anchor", "middle")  
         .style("font-size", "16px") 
         .style("text-decoration", "underline")  
-        .text("Overdose in State by Drug, 2018");
+        .text("Drug Overdoses, 2019");
     
 }
  
@@ -165,7 +165,12 @@ function HBarChart2(dataObject) {
     var width = 900;
     var height = 300;
 
-
+    var margin = {
+      top: 20,
+      right: 0,
+      bottom: 30,
+      left: 40
+    }
     // Setting x and y scales of the chart. Here, y will be used to sort, x will be numeric scale
     var y = d3.scaleLinear()
       .domain([0, d3.max(dataObject, function (d) { return d.value })]).nice()
@@ -205,7 +210,7 @@ function HBarChart2(dataObject) {
 
     bar.append("text").transition().delay(function (d, i) { return i * 150 })
       .attr("y", d => y(d.value) - 4)
-      .attr("x", (d, i) => x(i) + x.bandwidth() / 2)
+      .attr("x", (d, i) => x(i) + x.bandwidth() * .5 )
       .attr("dx", ".35em")
       .text(function (d) { return d.value; });
 
@@ -218,7 +223,7 @@ function HBarChart2(dataObject) {
         .attr("text-anchor", "middle")  
         .style("font-size", "16px") 
         .style("text-decoration", "underline")  
-        .text("Cause of Death for State, 2018");
+        .text("Age Adjusted Death Rate per 100,000 Individuals, 2019");
 
 }
 
@@ -288,7 +293,7 @@ var overdoseData = function(data) {
     for (let i = 0; i < data.length; i++){
         dataObject.push({"name": data[i].indicator, "value": Number(data[i].data_value)});
         };
-    console.log(dataObject);
+    console.log("Overdose Output", dataObject);
       
     return dataObject;
     };
@@ -296,9 +301,9 @@ var overdoseData = function(data) {
 var deathData = function(data) {
   dataObject = [];
     for (let i = 0; i < data.length; i++){
-        dataObject.push({"name": data[i].cause_name, "value": Number(data[i].deaths)});
+        dataObject.push({"name": data[i].cause_name, "value": Number(data[i].aadr)});
     };
-    console.log(dataObject);    
+    console.log("Death Output", dataObject);    
     return dataObject;
 }
 
@@ -314,7 +319,7 @@ var getObesity = function(gender, state) {
       }
     }).done(function(data) {
         console.log("Retrieved " + data.length + " records from the dataset!");
-        console.log(data);
+        console.log("Obesity Data", data);
         console.log(gender);
         console.log(state);
         obesityData(data);
@@ -324,7 +329,7 @@ var getObesity = function(gender, state) {
       });
     };
 var getOverdose = function(state) {
-        var queryURL = "https://data.cdc.gov/resource/xkb8-kh2a.json?year=2019&month=February&state_name=" + state;
+        var queryURL = "https://data.cdc.gov/resource/xkb8-kh2a.json?year=2019&month=February&state_name=" + state + "&$where=indicator in('Cocaine (T40.5)', 'Heroin (T40.1)'," + escape("'Natural & semi-synthetic opioids (T40.2)'") +  ",'Opioids (T40.0-T40.4,T40.6)', 'Psychostimulants with abuse potential (T43.6)', 'Synthetic opioids, excl. methadone (T40.4)', 'Methadone (T40.3)')";
       return $.ajax({
         url: queryURL,
         headers: {'Authorization': 'Basic ' + key,},
@@ -334,7 +339,7 @@ var getOverdose = function(state) {
       }
     }).done(function(data) {
         console.log("Retrieved " + data.length + " records from the dataset!");
-        console.log(data);
+        console.log("Overdose data", data);
         console.log(state)
         overdoseData(data)
         HBarChart2(dataObject);
@@ -351,7 +356,7 @@ var getDeathCause = function(state) {
       }
     }).done(function(data) {
         console.log("Retrieved " + data.length + " records from the dataset!");
-        console.log(data);
+        console.log("Death Cause Data", data);
 
         deathData(data);
         HBarChart3(dataObject)
@@ -366,14 +371,14 @@ function renderGraphs(state,gender){
 
 
 function getUser(user) {
-  userId = "/?id=" + user;
+  userId = "/" + user;
   $.get("/api/user" + userId, function (data) {
       console.log(data);
-      console.log(data[0].state);
-      console.log(data[0].gender);
-      var state = data[0].state;
-      var gender = data[0].gender;
-      var risk = data[0].total_score
+      console.log(data.state);
+      console.log(data.gender);
+      var state = data.state;
+      var gender = data.gender;
+      var risk = data.total_score
       renderGraphs(state,gender);
       Donut(risk)
   });
