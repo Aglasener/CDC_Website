@@ -4,9 +4,11 @@ var lastName = $("#lastName");
 var state = $("#state");
 var gender = $("#gender");
 var alcholPercentage = $("input[name='alcholPercentage']:checked").val()
+var tobacco= $("input[name='tobacco']:checked").val()
 
 console.log("THE ALCHOL PERCENTAGE", Number(alcholPercentage));
 console.log(age);
+console.log(tobacco)
 
 function drugValue () {
     
@@ -31,7 +33,7 @@ function drugValue () {
 
     
 
-function tobaccoValue () {
+/* function tobaccoValue () {
     var tobaccoScore = 0;
 
     if ($("#tobaccoYes").checked = true){
@@ -42,8 +44,8 @@ function tobaccoValue () {
         tobaccoScore = 0;
         return tobaccoScore;
     }
-    
-}
+     d
+} */
 
 /* function alcoholValue () {
     debugger
@@ -92,9 +94,10 @@ function totalScore(){
     var score = 0;
     var percentage = Number($("input[name='alcholPercentage']:checked").val())
     var sex = Number($("input[name='sex']:checked").val());
+    var tobaccopoints = Number($("input[name='tobacco']:checked").val());
     score = percentage + 
+            tobaccopoints +
                 ageValue() +
-                tobaccoValue() +
                 drugValue() +
                 10 +
                 sex;  
@@ -124,13 +127,13 @@ function handleFormSubmit(event) {
         gender: gender
         .val(),
         alcohol:Number($("input[name='alcholPercentage']:checked").val()),
-        tobacco_use: tobaccoValue(),
+        tobacco_use: Number($("input[name='alcholPercentage']:checked").val()),
         drug_use: drugValue(),
         obesity: 10,
         safe_sex: sex,  
         alcohol_score: Number($("input[name='alcholPercentage']:checked").val()),
         age_score: ageValue(),
-        tobacco_score: tobaccoValue(),
+        tobacco_score: Number($("input[name='alcholPercentage']:checked").val()),
         drug_score: drugValue(),
         obesity_score: 10,
         sex_score: sex,
