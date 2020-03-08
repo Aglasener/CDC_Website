@@ -28,18 +28,8 @@ function drugValue () {
     return drugScore;
 }
 
-function sexValue () {
-    var sexScore = 0;
-    if ($("#sex1").checked = true){
-        sexScore = 15;
-        return sexScore;
-    }
-    else {
-        sexScore = 0;
-        return sexScore;
-    }
+
     
-}
 
 function tobaccoValue () {
     var tobaccoScore = 0;
@@ -100,12 +90,13 @@ function ageValue(){
 
 function totalScore(){
     var percentage = Number($("input[name='alcholPercentage']:checked").val())
+    var sex = $("input[name='sex']:checked").val();
     var score = percentage + 
                 ageValue() +
                 tobaccoValue() +
                 drugValue() +
                 10 +
-                sexValue();  
+                sex;  
 
     return score;
 }
@@ -118,6 +109,7 @@ console.log("work");
 function handleFormSubmit(event) {
     event.preventDefault();
     console.log(age);
+    var sex = $("input[name='sex']:checked").val();
     var newUser = {
         first_name: firstName
         .val()
@@ -134,7 +126,7 @@ function handleFormSubmit(event) {
         tobacco_use: tobaccoValue(),
         drug_use: drugValue(),
         obesity: 10,
-        safe_sex: sexValue(),  
+        safe_sex: sex,  
         alcohol_score: Number($("input[name='alcholPercentage']:checked").val()),
         age_score: ageValue(),
         tobacco_score: tobaccoValue(),
@@ -154,5 +146,4 @@ function submitUser(user) {
         // window.location.href ="/user";
     });
 
-  }
-  
+  } 
