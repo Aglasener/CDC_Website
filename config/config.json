@@ -1,11 +1,9 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
-    "password": "testtest",
-=======
-    "password": "testtest",
->>>>>>> 878d90f890fdf9bb68d23edd135b1edac744d38a
+
+    "password": "student",
+
     "database": "riskvalues_db",
     "host": "localhost",
     "dialect": "mysql"
