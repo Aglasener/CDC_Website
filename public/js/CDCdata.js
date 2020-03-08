@@ -23,7 +23,7 @@ var margin = {
     
 // Chart creations function 
 
-function HBarChart(dataObject) {
+function HBarChart(dataObject, state) {
 
     var dataObject = dataObject.filter(function (el) {
       return el.value > 0
@@ -69,7 +69,7 @@ function HBarChart(dataObject) {
             .attr("height", d => y(0) - y(d.value))
             .attr("y", d => y(d.value))
             .attr("x", (d, i) => x(i))
-            .attr("fill", function(d,i) { if(d.name == "Moses") { return "orange"} }   )
+            .attr("fill", function(d,i) { if(d.name == state) { return "orange"} }   )
         
     bar.append("text").transition().delay(function(d, i) { return i * 75 })
         .attr("y", d => y(d.value) - 4)
@@ -303,7 +303,7 @@ var deathData = function(data) {
 }
 
 
-var getObesity = function(gender) {
+var getObesity = function(gender, state) {
         var queryURL = "https://chronicdata.cdc.gov/resource/hn4x-zwk7.json?gender=" + gender + "&questionid=Q036&yearend=2018";
       return $.ajax({
         url: queryURL,
@@ -315,9 +315,11 @@ var getObesity = function(gender) {
     }).done(function(data) {
         console.log("Retrieved " + data.length + " records from the dataset!");
         console.log(data);
-        
+        console.log(gender);
+        console.log(state);
         obesityData(data);
-        HBarChart(dataObject)
+        HBarChart(dataObject, state)
+        console.log(dataObject)
         
       });
     };
@@ -333,7 +335,7 @@ var getOverdose = function(state) {
     }).done(function(data) {
         console.log("Retrieved " + data.length + " records from the dataset!");
         console.log(data);
-
+        console.log(state)
         overdoseData(data)
         HBarChart2(dataObject);
       });
@@ -357,7 +359,7 @@ var getDeathCause = function(state) {
     };
 
 function renderGraphs(state,gender){
-    getObesity(gender);
+    getObesity(gender, state);
     getOverdose(state);
     getDeathCause(state);
 }
