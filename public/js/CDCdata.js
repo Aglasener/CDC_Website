@@ -260,7 +260,7 @@ function Donut(risk){
   var title = svg.append("text")
           .text("Risk Score")
           .attr("font-size", "30px")
-          .attr("x", "200px")
+          .attr("x", width / 2.6)
           .attr("y", "40px");
   
   foreground.transition().duration(1500).attrTween("d", arcTween((risk / 100) * tau))
