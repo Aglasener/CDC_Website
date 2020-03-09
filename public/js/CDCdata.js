@@ -143,7 +143,7 @@ function HBarChart2(dataObject) {
       .attr("dx", ".35em")
       .text(function (d) { return d.value; });
   
-  chart.append("g").call(xAxis).selectAll("text").attr("transform", "rotate(90)").style("text-anchor", "start").attr("x", 9).attr("y", 0) ;
+  chart.append("g").call(xAxis).selectAll("text").attr("transform", "rotate(50)").style("text-anchor", "start").attr("x", 9).attr("y", 0) ;
   chart.append("g").call(yAxis);
 
   chart.append("text")
@@ -214,11 +214,11 @@ function HBarChart2(dataObject) {
       .attr("dx", ".35em")
       .text(function (d) { return d.value; });
 
-    chart.append("g").call(xAxis).selectAll("text").attr("transform", "rotate(90)").style("text-anchor", "start").attr("x", 9).attr("y", 0);
+    chart.append("g").call(xAxis).selectAll("text").attr("transform", "rotate(50)").style("text-anchor", "start").attr("x", 9).attr("y", 0);
     chart.append("g").call(yAxis);
 
     chart.append("text")
-        .attr("x", width * .6)             
+        .attr("x", width * .75)             
         .attr("y", 0 + margin.top)
         .attr("text-anchor", "middle")  
         .style("font-size", "16px") 
