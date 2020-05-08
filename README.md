@@ -6,7 +6,7 @@
 
 ## Description
 
-Project 2L CDC Website is a website that allows the user to enter cient information and return a simplified risk score based on the entered information. Each client profile is saved to a server database.
+Project 2: CDC Website is a website that allows the user to enter client information and return a simplified risk score based on the entered information. Each client profile is saved to a server database.
 
 ## Features
 
