@@ -17,7 +17,8 @@ Project 2: CDC Website is a website that allows the user to enter client informa
 
 ## Setup/Installation Requirements
 
-* Navigate to the provided heroku app link
+* Navigate to the provided heroku app link:
+https://intense-fortress-61709.herokuapp.com/
 
 ## Known Bugs
 
@@ -45,4 +46,4 @@ D3.js
 ## Contribution Guidelines
 
 Direct link to site:
-SITE LINK HERE
+https://intense-fortress-61709.herokuapp.com/
