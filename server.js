@@ -5,9 +5,11 @@ var express = require("express");
 var db = require("./models");
 
 var app = express();
+var compression = require("compression");
 var PORT = process.env.PORT || 3000;
 
 // Middleware
+app.use(compression());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
